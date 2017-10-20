@@ -32,7 +32,7 @@ func (s *SSDBClient) Start() error {
 	if err != nil {
 		return err
 	}
-	sock.SetReadBuffer(8192)
+	sock.SetReadBuffer(1024 * 1024)
 	//sock.SetWriteBuffer(1024)
 	s.buf = bufio.NewReadWriter(bufio.NewReader(sock), bufio.NewWriter(sock))
 	s.sock = sock
